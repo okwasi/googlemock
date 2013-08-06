@@ -33,7 +33,6 @@
         'include/gmock/internal/gmock-generated-internal-utils.h.pump',
         'include/gmock/internal/gmock-internal-utils.h',
         'include/gmock/internal/gmock-port.h',
-        'src/gmock-all.cc',
         'src/gmock-internal-utils.cc',
         'src/gmock-spec-builders.cc',
         'src/gmock_main.cc',
@@ -43,6 +42,27 @@
       ],
       'dependencies': [
         '../googletest/googletest.gyp:googletest',
+      ],
+    },
+    {
+      'target_name': 'googlemock_bare_essentials',
+      'type': 'static_library',
+      'include_dirs': [
+        '.',
+        'include',
+      ],
+      'direct_dependent_settings': {
+        'include_dirs': [
+          '.',
+          'include',
+        ],
+      },
+      'sources': [
+        'src/gmock-all.cc',
+        'src/gmock_main.cc',
+      ],
+      'dependencies': [
+        '../googletest/googletest.gyp:googletest_bare_essentials',
       ],
     },
   ],
